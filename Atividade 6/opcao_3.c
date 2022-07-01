@@ -2,14 +2,6 @@
 #include <stdlib.h>
 #include "modulos.h"
 
-typedef struct Funcionarios
-{
-  char nome[50];
-  char cargo[50];
-  float salario;
-  int dependentes;
-}Funcionarios;
-
 void opcao_3()
 {
   Funcionarios novo;
