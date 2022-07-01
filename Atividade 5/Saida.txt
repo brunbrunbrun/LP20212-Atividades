@@ -1,0 +1,21 @@
+###############################
+Mauricio	
+Tempo Total	342
+Média	44.071
+Voltas abaixo da média	4
+###############################
+
+###############################	
+Bianca (vencedora)	
+Tempo Total	555
+Média	55,50
+Voltas abaixo da média	5
+###############################
+	
+###############################	
+Vitor	
+Tempo Total	575
+Média	57,50
+Voltas abaixo da média	6
+###############################
+
