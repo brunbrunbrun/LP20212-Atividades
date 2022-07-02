@@ -29,6 +29,9 @@ int main()
       case 1: opcao_1();
       break;
 
+      case 2: opcao_2();
+      break;
+
       case 3: opcao_3();
       break;
 

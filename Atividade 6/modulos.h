@@ -11,6 +11,7 @@ typedef struct Funcionarios
 
 
 void opcao_1();
+void opcao_2();
 void opcao_3();
 
 #endif

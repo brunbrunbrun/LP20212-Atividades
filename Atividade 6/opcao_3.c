@@ -6,7 +6,7 @@ void opcao_3()
 {
   Funcionarios novo;
   FILE *Funcionarios_dat;
-  Funcionarios_dat = fopen("Funcionarios.dat","ab+");
+  Funcionarios_dat = fopen("Funcionarios.dat","ab");
 
 
   printf("Informe os dados do novo funcionario\n");
