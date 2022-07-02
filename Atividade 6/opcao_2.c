@@ -10,12 +10,9 @@ void opcao_2()
     Funcionarios funcionario_atual;
 
 
-    while(!feof(Funcionarios_dat))
+    while(fread(&funcionario_atual, sizeof(Funcionarios), 1, Funcionarios_dat))
     {
-        if(fread(&funcionario_atual, sizeof(Funcionarios), 1, Funcionarios_dat))
-        {
-            printf("\n%s %s %.2f %d\n",funcionario_atual.nome,funcionario_atual.cargo,funcionario_atual.salario,funcionario_atual.dependentes);
-        }
+        printf("\n%s %s %.2f %d\n",funcionario_atual.nome,funcionario_atual.cargo,funcionario_atual.salario,funcionario_atual.dependentes);    
     }
 
     fclose(Funcionarios_dat);
