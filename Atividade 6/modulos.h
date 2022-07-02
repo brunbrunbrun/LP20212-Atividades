@@ -3,8 +3,8 @@
 
 typedef struct Funcionarios
 {
-  char nome[50];
-  char cargo[50];
+  char nome[100];
+  char cargo[100];
   float salario;
   int dependentes;
 }Funcionarios;
