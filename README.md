@@ -5,3 +5,6 @@ Modulo 1
 
 ### Atividade 4,5,6
 Modulo 2
+
+### Atividade 7,8
+Modulo 3
