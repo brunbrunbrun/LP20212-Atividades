@@ -63,4 +63,24 @@ lista_cpf.append(int(digitu_2))
 digitos_controle += str(int(digitu_2))
 
 
+# gera um o cpf formatado corretamente
+cpf_certu = ''
+for i in range(9):
+    cpf_certu += str(lista_cpf[i])
+
+cpf_certu += '-'
+cpf_certu += str(int(digitu_1))
+cpf_certu += str(int(digitu_2))
+
+
 # olha se o digitos_controle informado é valido, comparando com o obtido
+print("\n")
+
+if(cpf_controle == digitos_controle):
+    print("CPF valido")
+    print(f"CPF: {cpf_certu}")
+
+else:
+    print("CPF invalido")
+    print(f"Os digitos de controle deveriam ser: {digitos_controle}")
+    print(f"CPF correto: {cpf_certu}")
