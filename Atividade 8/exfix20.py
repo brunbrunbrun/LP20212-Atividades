@@ -3,47 +3,72 @@ import numpy as np
 # define a quantidade de dados a serem lidos
 dados = 20
 
+# inicialização de listas e dicionarios
 Alturas_Lista = []
 Alturas_Lista_Mulheres = []
-listaNotasMulheres = []
-listaNotasHomens = []
-dicionarioAnosNascimentos = {}
 
+Notas_Lista_Homens = []
+Notas_Lista_Mulheres = []
 
+Nascimentos_Dic = {}
+
+# loop para inserir todos os dados
 for i in range(dados):
-    altura = float(input('Altura: '))
-    nota = float(input('Nota: '))
-    anoNascimento = int(input('Ano de nascimento: '))
-    sexo = input('Código do sexo ("M" ou "F"): ')
-    Alturas_Lista.append(altura)
-    if sexo == 'F':
-        Alturas_Lista_Mulheres.append(altura)
-        listaNotasMulheres.append(nota)
-    else:
-        listaNotasHomens.append(nota)
-    if anoNascimento in dicionarioAnosNascimentos:
-        dicionarioAnosNascimentos[anoNascimento] += 1
-    else:
-        dicionarioAnosNascimentos[anoNascimento] = 1
 
-vetorAlturas = np.array(Alturas_Lista)
-mediaAlturasMulheres = (np.array(Alturas_Lista_Mulheres)).mean()
-quantidadeMulheres = 0
-for altura in Alturas_Lista_Mulheres:
-    if altura > mediaAlturasMulheres:
-        quantidadeMulheres += 1
-mediaNotasMulheres = (np.array(listaNotasMulheres)).mean()
-quantidadeHomens = 0
-for nota in listaNotasHomens:
-    if nota < mediaNotasMulheres:
-        quantidadeHomens += 1
+    print(f"Insira os dados do #{i+1} aluno.")
 
-print(f'\nMaior altura da turma: {vetorAlturas.max()}')
-print(f'Menor altura da turma: {vetorAlturas.min()}')
-print(f'Quantidade de mulheres com altura acima da média\
-        das alturas das mulheres: {quantidadeMulheres}')
-print(f'Quantidade de homens com nota inferior a média\
-        das notas das mulheres: {quantidadeHomens}')
-print('Percentual de pessoas que nasceram em cada ano inserido: ')
-for ano in dicionarioAnosNascimentos:
-    print(f'{ano} - {(dicionarioAnosNascimentos[ano] * 100 / dados):.2f}%')
+    Altura = float(input("Altura: "))
+    Nota = float(input("Nota: "))
+    Nascimento = int(input("Ano do nascimento: "))
+    sexo = input("Sexo (M ou F): ")
+    print("\n")
+
+    # adiciona as variaveis do aluno nas listas
+    Alturas_Lista.append(Altura)
+    if (sexo == 'F'):
+        Alturas_Lista_Mulheres.append(Altura)
+        Notas_Lista_Mulheres.append(Nota)
+    else:
+        Notas_Lista_Homens.append(Nota)
+
+    if (Nascimento in Nascimentos_Dic):
+        Nascimentos_Dic[Nascimento] += 1
+    else:
+        Nascimentos_Dic[Nascimento] = 1
+
+# separação em um vetor para poder executar as funçoes do numpy
+array_Alturas = np.array(Alturas_Lista)
+
+# media e acima da media com o numpy
+Media_Altura_Molier = (np.array(Alturas_Lista_Mulheres)).mean()
+qtd_Molier = 0
+
+for Altura in Alturas_Lista_Mulheres:
+    if (Altura > Media_Altura_Molier):
+        qtd_Molier += 1
+Media_Nota_Molier = (np.array(Notas_Lista_Mulheres)).mean()
+
+# notas dos homi
+qtd_Homi = 0
+for Nota in Notas_Lista_Homens:
+    if (Nota < Media_Nota_Molier):
+        qtd_Homi += 1
+
+
+# print dos resultados
+print("\n---------------------\n")
+
+print(f"Maior altura da turma: {array_Alturas.max()}")
+print(f"Menor altura da turma: {array_Alturas.min()}\n")
+
+print(f"Quantidade de mulheres com altura acima da média\
+das alturas das mulheres: {qtd_Molier}\n")
+
+print(f"Quantidade de homens com nota inferior a média\
+das notas das mulheres: {qtd_Homi}\n")
+
+# loop para cada um dos anos
+# fora de ordem
+print("Percentual de pessoas que nasceram em cada ano inserido: ")
+for ano in Nascimentos_Dic:
+    print(f"{ano} -- {(Nascimentos_Dic[ano] * 100 / dados):.2f}%")
